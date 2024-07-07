@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible"
+          content="IE=edge">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+          crossorigin="anonymous">
+    <!-- Google Fonts -->
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Roboto:400,500,700&display=swap">
+    <!-- Custom Styles -->
+    <style>
+        .container {
+            border: 1px solid #fff;
+            max-width: 950px;
+            margin-top: 50px;
+            padding: 25px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.9);
+            border-radius: 15px;
+            background: linear-gradient(to right, #232526, #414345, #373737, #2f2f2f, #2b1b1b);
+            color: green;
+            font-size: 20px;
+        }
+
+        .bg-danger {
+            background: linear-gradient(to right, #ee0979, #ff6a00) !important;
+        }
+
+        .bg-danger:hover {
+            background: linear-gradient(to right, #3A3F44, #E53935, #F1C40F, #4CAF50, #00BCD4) !important;
+        }
+
+        h1,
+        h2,
+        h4,
+        label {
+            color: #fff;
+        }
+
+        input[type=text],
+        input[type=email],
+        input[type=tel],
+        input[type=date],
+        select {
+            background-color: #474747;
+            border: none;
+            color: #fff;
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            width: 100%;
+        }
+
+        input[type="checkbox"] {
+            margin-right: 10px;
+        }
+
+        input[type="checkbox"]:hover,
+        input[type="radio"]:hover {
+            cursor: pointer;
+        }
+
+        input[type="checkbox"]:checked:before,
+        input[type="radio"]:checked:before {
+            content: "\2713";
+            display: inline-block;
+            color: #fff;
+            font-size: 16px;
+            font-weight: bold;
+            width: 16px;
+            height: 16px;
+            margin-right: 5px;
+            text-align: center;
+            background-color: #2b2b2b;
+            border-radius: 3px;
+            line-height: 16px;
+        }
+
+        input[type="checkbox"]:focus,
+        input[type="radio"]:focus {
+            outline: none;
+        }
+
+        button[type="submit"] {
+            background-color: #ff5757;
+            border: none;
+            color: #fff;
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: 20px;
+            width: 100%;
+            transition: background-color 0.3s ease;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #ff3333;
+            cursor: pointer;
+        }
+
+        .form-control {
+            background-color: #2b2b2b;
+            border: none;
+            border-radius: 5px;
+            color: #f2f2f2;
+            padding: 10px;
+            width: 100%;
+            transition: all 0.5s ease;
+        }
+
+        .form-control:focus {
+            outline: none;
+            box-shadow: 0 0 5px #00bfff;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+            color: RED;
+        }
+
+        select {
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="8" viewBox="0 0 16 8"><path fill="%23fff" d="M.76 0L0 .76 6.12 7.6 7.6 6.12.64.16H15.2v-.8H.76z"/></svg>') no-repeat right #303133;
+            background-size: 16px 8px;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            padding-right: 20px;
+        }
+
+        form>div:last-child input[type=checkbox],
+        form>div:last-child select {
+            margin-bottom: 20px;
+        }
+
+        input[type=checkbox],
+        input[type=radio] {
+            appearance: none;
+            border-radius: 50%;
+            width: 16px;
+            height: 16px;
+            border: 2px solid #fff;
+            position: relative;
+            margin-right: 10px;
+            vertical-align: middle;
+            cursor: pointer;
+        }
+
+        input[type=checkbox]:checked:before,
+        input[type=radio]:checked:before {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: #ff4d4d;
+        }
+
+        input[type=submit] {
+            padding: 12px;
+            border-radius: 4px;
+            border: none;
+            background-color: #ff4d4d;
+            color: #fff;
+            cursor: pointer;
+            transition: background-color .3s ease-in-out;
+        }
+
+        input[type=submit]:hover {
+            background-color: #e03030;
+        }
+
+        input[type=text]:focus,
+        input[type=email]:focus,
+        input[type=tel]:focus,
+        input[type=date]:focus,
+        select:focus {
+            animation: input-focus .3s ease-in-out forwards;
+        }
+
+        @keyframes input-focus {
+            from {
+                box-shadow: none;
+            }
+
+            to {
+                box-shadow: 0 0 6px #ff4d4d;
+            }
+        }
+
+        body {
+            background: linear-gradient(to top, #9B59B6, #8E44AD, #E91E63, #FF2D55, #FFC232);
+            color: #fffd;
+        }
+
+        label[for]:after {
+            content: "*";
+            color: #ff4d4d;
+            margin-left: 4px;
+        }
+
+        .form-group {
+            padding: 10px 0;
+        }
+
+        h1,
+        h2,
+        h4,
+        h5 {
+            color: #ff4d;
+            font-weight: bolder;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <!-- Form for collecting student data -->
+        <form class="was-validated"
+              action="pecinserted.php"
+              method="post">
+            <!-- Header Jumbotron -->
+            <div class="mt-4 p-5 bg-danger text-white rounded">
+                <h1>PEC Free courses:</h1>
+                <p>We offer free courses to help students who are struggling financially and cannot afford to pay for
+                    their education.</p>
+            </div><br>
+            <!-- Form Title -->
+            <h2 class="text-center">Form for collecting the data of students:</h2>
+            <!-- Name Input -->
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text"
+                       name="name"
+                       class="form-control"
+                       id="name"
+                       required>
+            </div><br>
+            <!-- Father Name Input -->
+            <div class="form-group">
+                <label for="father-name">Father Name:</label>
+                <input type="text"
+                       name="father-name"
+                       class="form-control"
+                       id="father-name"
+                       required>
+            </div><br>
+            <!-- University Name Input -->
+            <div class="form-group">
+                <label for="institute-name">Name of university:</label>
+                <input type="text"
+                       name="institute-name"
+                       class="form-control"
+                       id="institute-name"
+                       required>
+            </div><br>
+            <!-- Year of Admission Input -->
+            <div class="form-group">
+                <label for="year-of-admission">Year of Admission:</label>
+                <input type="text"
+                       name="year-of-admission"
+                       class="form-control"
+                       id="year-of-admission"
+                       required>
+            </div><br>
+            <!-- Roll Number Input -->
+            <div class="form-group">
+                <label for="roll-no">Roll No:</label>
+                <input type="text"
+                       name="roll-no"
+                       class="form-control"
+                       id="roll-no"
+                       required>
+            </div><br>
+            <!-- Email Address Input -->
+            <div class="form-group">
+                <label for="email">Email address:</label>
+                <input type="email"
+                       name="email"
+                       class="form-control"
+                       id="email"
+                       required>
+            </div><br>
+            <!-- Phone Number Input -->
+            <div class="form-group">
+                <label for="phone-number">Phone Number:</label>
+                <input type="tel"
+                       name="phone-number"
+                       class="form-control"
+                       id="phone-number"
+                       required>
+            </div><br>
+            <!-- Last Paper Result Input -->
+            <div class="form-group">
+                <label for="last-paper-result">Last Paper Result:</label>
+                <input type="text"
+                       name="last-paper-result"
+                       class="form-control"
+                       id="last-paper-result"
+                       placeholder="A+ or A or B or C"
+                       required>
+            </div><br>
+            <!-- Date of Birth Input -->
+            <div class="form-group">
+                <label for="dob">Date of Birth:</label>
+                <input type="date"
+                       name="dob"
+                       class="form-control"
+                       id="dob"
+                       required>
+            </div><br>
+            <!-- Gender Radio Buttons -->
+            <div class="form-group">
+                <label for="gender">Gender:</label><br>
+                <input type="radio"
+                       name="gender"
+                       value="male"
+                       required>&nbsp;Male&nbsp;&nbsp;&nbsp;&nbsp;
+                <input type="radio"
+                       name="gender"
+                       value="female"
+                       required>&nbsp;Female&nbsp;&nbsp;&nbsp;&nbsp;
+                <input type="radio"
+                       name="gender"
+                       value="custom"
+                       required>&nbsp;Custom&nbsp;&nbsp;&nbsp;&nbsp;
+            </div><br>
+            <!-- Course Selection Checkboxes -->
+            <h4>Select at least 3 courses in which you want to enroll:</h4>
+            <input type='checkbox'
+                   name='skills[]'
+                   value='AI'>&nbsp;Basic of AI<br>
+            <input type='checkbox'
+                   name='skills[]'
+                   value='CY'>&nbsp;Basic of CY<br>
+            <input type='checkbox'
+                   name='skills[]'
+                   value='python'>&nbsp;Python<br>
+            <input type='checkbox'
+                   name='skills[]'
+                   value='c++'>&nbsp;C++<br>
+            <input type='checkbox'
+                   name='skills[]'
+                   value='Machine Learning'>&nbsp;Machine Learning<br>
+            <input type='checkbox'
+                   name='skills[]'
+                   value='JavaScript'>&nbsp;JavaScript<br>
+            <input type='checkbox'
+                   name='skills[]'
+                   value='App development'>&nbsp;App development<br>
+            <input type='checkbox'
+                   name='skills[]'
+                   value='java'>&nbsp;Java<br><br>
+    
+            <!-- Program Dropdown -->
+            <h5><label for="degree-programme">Which program are you currently involved in?</label></h5><br>
+            <select name="courses[]"
+                    required>
+                <option value="">Select a program</option>
+                <option value="BSCS">BSCS</option>
+                <option value="BSSE">BSSE</option>
+                <option value="BSIT">BSIT</option>
+                <option value="BSEE">BSEE</option>
+                <option value="BSEL">BSEL</option>
+                <option value="BSCIS">BSCIS</option>
+                <option value="BSAI">BSAI</option>
+                <option value="BSCY">BSCY</option>
+                <option value="BSDS">BSDS</option>
+            </select><br><br>
+            <!-- Submit Button -->
+            <button type="submit"
+                    class="btn btn-success">Submit Form</button>
+        </form>
+        
+    </div>
+            <!-- Validation Script for Course Selection -->
+            <script>
+                var checkboxes = document.getElementsByName('skills[]');
+                document.querySelector('form').addEventListener('submit', function (event) {
+                    var numChecked = 0;
+                    for (var i = 0; i < checkboxes.length; i++) {
+                        if (checkboxes[i].checked) {
+                            numChecked++;
+                        }
+                    }
+                    if (numChecked < 3) {
+                        event.preventDefault();
+                        alert('Please select at least 3 courses to enroll.');
+                    }
+                });
+            </script>
+</body>
+
+</html>
